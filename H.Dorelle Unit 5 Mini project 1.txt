@@ -1,0 +1,57 @@
+﻿Unit 5 Mini Project: Creating and inserting data
+
+
+Please copy your SQL below for each of the three tasks.
+
+
+* Create and populate a videos table. 
+   * This table should include a unique ID, the title of the video, the length in minutes, and the URL. 
+   * Populate the table with at least three related videos from YouTube or other publicly available resources.
+              
+ CREATE TABLE videos(
+    id serial PRIMARY KEY, 
+    minutes INT NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    url VARCHAR(255) NOT NULL,
+    description VARCHAR(255));
+
+
+INSERT INTO Videos ( Id, Title, minutes, Url ) 
+VALUES ( 1, 'Les miserables', 98, 'https://www.youtube.com'),
+       ( 2, 'Black Panther', 120, 'https://www.netflix.com'),
+       ( 3, 'Squid Game', 160, 'https://www.guru.com'),
+       ( 4, 'King of Boys', 75, 'https://www.holulu.com'),
+       ( 5, 'Anaconda', 126, 'https://www.tiktok.com');
+  
+  
+
+
+* Create and populate reviewers table.
+   * Create a second table that provides at least two user reviews for each of at least two of the videos. 
+   * These should be imaginary reviews that include columns for the user’s name (“Asher”, “John”, etc.), the rating (which could be NULL, or a number between 0 and 5), and a short text review (“Loved it!”).  There should be a column that links back to the ID column in the table of videos.
+
+
+                                           CREATE TABLE Reviewers (
+                                       id serial primary key,
+                                          Rating INT NULL,
+                                     Users VARCHAR(50) NOT NULL,
+                                        Review VARCHAR(10),
+                                         video_Id INT REFERENCES Reviewers);
+
+
+
+
+                                                 INSERT INTO reviewers (users,rating,review) 
+                                                 VALUES ('Asher',5, 'loved it')
+                                                              ('John', 5, 'loved it');
+          
+
+
+          Report on Video Reviews.  
+   * Write a JOIN statement that shows information from both tables.
+   * Write at least one query showing analysis of the joined table.
+
+
+SELECT
+FROM videos v INNER JOIN Reviewers r
+ON v.Id = r. video_Id;

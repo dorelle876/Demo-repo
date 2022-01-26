@@ -1,0 +1,21 @@
+﻿Name: Herdeveine Dorelle Ngoundou Ngoma
+Lesson 5: Joins and Unions
+
+
+Copy your SQL queries below  Join the film to the film_actor table.
+SELECT *
+FROM film_actor
+INNER JOIN  film on film.film_id = film_actor.film_id
+
+
+2.Join the actor table to the film_actor table. 
+SELECT *
+FROM actor 
+INNER JOIN  film_actor on actor.actor_id = film_actor.actor_id
+
+
+3.Try to join the actor, film_actor, and film table together (3 joins!)
+  SELECT *
+FROM actor 
+INNER JOIN  film_actor on actor.actor_id = film_actor.actor_id
+INNER JOIN  film on film.film_id = film_actor.film_id
